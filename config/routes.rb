@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root :to => "contributions#index"
 
   resources :contributions do
-    resources :opinions
+    resources :opinions, :except => [:show, :index]
   end
 
 end
