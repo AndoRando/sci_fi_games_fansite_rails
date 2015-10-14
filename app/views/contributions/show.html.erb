@@ -1,8 +1,26 @@
 <h1><%= @contribution.name %></h1>
 
-<p><%= link_to "Edit", edit_contribution_path(@contribution) %></p>
-<p><%= link_to "Delete", contribution_path(@contribution),
-                         :data => {:method => "delete"} %></p>
+<h3>The basic gist:</h3>
+
+<p><%= @contribution.content %></p>
+
+<h3>Opinions - <small><%= link_to "Add yours", new_contribution_opinion_path(@contribution) %></small></h3>
+
+<% if @contribution.opinions.any? %>
+  <ul>
+    <% @contribution.opinions.each do |opinion| %>
+      <li>
+        <h4><%= opinion.title %> - <%= link_to "Remove", contribution_opinion_path(@contribution, opinion), :data => { :method => "delete" } %></h4>
+        <p><%= opinion.content %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no opinions yet.</p>
+<% end %>
+
+<p><%= link_to "Edit", edit_contribution_path(@contribution) %> |
+   <%= link_to "Delete", contribution_path(@contribution), :data => {:method => "delete"} %></p>
 
 
 <p><%= link_to "Return to Contributions", contributions_path %></p>

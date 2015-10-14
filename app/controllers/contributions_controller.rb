@@ -17,6 +17,7 @@ class ContributionsController < ApplicationController
   def create
     @contribution = Contribution.new(contribution_params)
     if @contribution.save
+      flash[:notice] = "Contribution added!"
       redirect_to contributions_path
     else
       render :new
