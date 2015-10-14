@@ -1,0 +1,7 @@
+<h1>Contributions</h1>
+
+<ul>
+  <% @contributions.each do |contribution| %>
+    <li><%= link_to contribution.name, contribution_path(contribution) %></li>
+  <% end %>
+</ul>
