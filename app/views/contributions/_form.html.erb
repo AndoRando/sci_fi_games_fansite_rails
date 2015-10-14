@@ -1,0 +1,15 @@
+<%= render "layouts/errors", :object => @contribution %>
+
+<%= form_for @contribution do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <br>
+  <%= f.label :subgenre %>
+  <%= f.text_field :subgenre %>
+  <br>
+  <br>
+  <%= f.submit %>
+<% end %>

@@ -1,6 +1,9 @@
 <h1><%= @contribution.name %></h1>
 
-
+<p><%= link_to "Edit", edit_contribution_path(@contribution) %></p>
+<p><%= link_to "Delete", contribution_path(@contribution),
+                         :data => {:confirm => "Are you sure?",
+                                   :method => "delete"} %></p>
 
 
 <p><%= link_to "Return to Contributions", contributions_path %></p>
